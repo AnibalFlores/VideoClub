@@ -1,0 +1,17 @@
+<div *ngIf="peli" class="products">
+  <h2>Detalles de: {{peli.titulo | uppercase}} </h2>
+  <div><img src="{{peli.imagen}}" width="550"></div>
+  <div><span>Descripción: </span>{{peli.descripcion}}</div>
+  <div><span>Genero: </span>{{peli.genero}}</div>
+  <div><span>Puntaje: </span>{{peli.valoracion}}</div>
+  <div><span>Alquilada: </span>{{peli.cantidadAlquileres}} veces</div>
+  <div><span>Disponible: </span>{{peli.alquilada == false ? 'Si' : 'No'}}</div>
+  <div>
+      <button routerLink="/" class="btn">
+        Volver
+      </button>
+    <button routerLink="/pelicula-edit/{{peli.id}}" class="btn">
+      Editar
+    </button>
+  </div>
+</div>
