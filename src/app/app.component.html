@@ -1,8 +1,45 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-<app-navbar></app-navbar>
+<!-- NavBar -->
+<div class="container-fluid fixed-top">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <a class="navbar-brand" routerLink="/"><fa name="film" size="lg"></fa> Video Club</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+  
+          <li class="nav-item active" *ngIf="!usuario">
+            <a class="nav-link" routerLink="login">Login <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active" *ngIf="usuario">
+            <a class="nav-link" (click)="desloguear()" >Logout <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item" *ngIf="usuario">
+            <a class="nav-link" href="#">Usuario {{usuario.nombre}} {{usuario.apellido}}</a>
+          </li>
+        </ul>
+        <form name="coolForm" class="form-inline my-2 my-lg-0">
+            <input #query (keyup.enter)="buscarTermino(query.value)" class="form-control mr-sm-2" placeholder="Buscar...">
+        </form>
+      </div>
+    </nav>
+  </div>
+<!-- NavBar -->
+
 <router-outlet></router-outlet>
-<app-footer></app-footer>
-</div>
+
+<!-- Footer -->
+<div class="container-fluid fixed-bottom bg-dark">
+    <footer class="footer text-center py-3 text-white-50 h-25">
+    <!-- Copyleft -->
+    <div class="footer-copyright">© 2018 Copyleft:
+      <a href="https://github.com/AnibalFlores/"> Aníbal H. Flores</a>
+    </div>
+    <!-- Copyleft -->
+  </footer>
+  </div>
+  <!-- Footer -->
 
 

@@ -1,53 +1,123 @@
-<div>
-<h3>Peliculas Disponibles</h3>
-<style>
-@media (min-width: 34em) {
-    .card-columns {
-        -webkit-column-count: 2;
-        -moz-column-count: 2;
-        column-count: 2;
-    }
-}
 
-@media (min-width: 48em) {
-    .card-columns {
-        -webkit-column-count: 3;
-        -moz-column-count: 3;
-        column-count: 3;
-    }
-}
+<!-- Cards -->
+<div class="container-fluid text-center">
+    <style>
+        @media (min-width: 34em) {
+            .card-columns {
+                -webkit-column-count: 2;
+                -moz-column-count: 2;
+                column-count: 2;
+                display: flex;
+                align-items: stretch;
+                justify-content: space-evenly;
+            }
 
-@media (min-width: 62em) {
-    .card-columns {
-        -webkit-column-count: 4;
-        -moz-column-count: 4;
-        column-count: 4;
-    }
-}
+            .card-img-top {
+                width: 100%;
+                height: 15vw;
+                object-fit: cover;
+            }
 
-@media (min-width: 75em) {
-    .card-columns {
-        -webkit-column-count: 5;
-        -moz-column-count: 5;
-        column-count: 5;
-    }
-}
-</style>
-<div class="card-columns">
-<div class="card text-white bg-secondary mb-3" style="max-width: 18rem;" *ngFor = "let p of peliculas; let i=index;">
-  <div class="card-header text-capitalize"><h5><strong>{{p.titulo}}</strong></h5></div>
-  <img class="card-img-top border-dark" src="{{p.imagen}}" alt="Imagen {{p.titulo}}">
-  
-  <div class="card-body">
-    
-    <p class="card-text">{{p.descripcion}}</p>
-    <h6 class="badge">Genero: {{p.genero}}</h6>
-    <h6 class="badge">Puntaje: {{p.valoracion}}</h6>
-    <div>
-    <a routerLink = "/pelicula-details/{{p.id}}" class="btn btn-secondary">Detalles</a>
-    <a routerLink = "/pelicula-rent/{{p.id}}" class="btn btn-secondary">Alquilar</a>
+        }
+
+        @media (min-width: 48em) {
+            .card-columns {
+                -webkit-column-count: 3;
+                -moz-column-count: 3;
+                column-count: 3;
+                display: flex;
+                align-items: stretch;
+                justify-content: space-evenly;
+            }
+
+            .card-img-top {
+                width: 100%;
+                height: 15vw;
+                object-fit: cover;
+            }
+
+        }
+
+        @media (min-width: 62em) {
+            .card-columns {
+                -webkit-column-count: 4;
+                -moz-column-count: 4;
+                column-count: 4;
+                display: flex;
+                align-items: stretch;
+                justify-content: space-evenly;
+            }
+
+            .card-img-top {
+                width: 100%;
+                height: 15vw;
+                object-fit: cover;
+            }
+
+        }
+
+        @media (min-width: 75em) {
+            .card-columns {
+                -webkit-column-count: 5;
+                -moz-column-count: 5;
+                column-count: 6;
+                display: flex;
+                align-items: stretch;
+                justify-content: space-evenly;
+            }
+
+            .card-img-top {
+                width: 100%;
+                height: 15vw;
+                object-fit: cover;
+            }
+
+
+        }
+    </style>
+
+    <div class="p-3 mt-5 mb-5">
+        <div class="title p-3">
+            <h5>Resultados {{ peliculas.length}}</h5>
+        </div>
+        <div>
+            <pagination-controls (pageChange)="p = $event" directionLinks="true" autoHide="true" responsive="true"
+                previousLabel="" nextLabel=""></pagination-controls>
+        </div>
+        <div class="card-columns">
+
+            <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;" *ngFor="let p of peliculas | paginate: { itemsPerPage: 5, currentPage: p, totalItems: peliculas.length }">
+                <div class="card-header text-capitalize">
+                    <h5><strong>{{p.titulo}}</strong></h5>
+                </div>
+                <img class="card-img-top" src="{{p.imagen}}" alt="Imagen {{p.titulo}}" routerLink="/pelicula-details/{{p.id}}">
+
+                <div class="card-body">
+
+                    <div class="card-text">
+                        <p><span>{{p.descripcion | summary }}</span></p>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <p class="badge badge-pill">Genero: {{p.genero}}</p>
+                        </div>
+                        <div>
+                            <p class="badge badge-pill">Puntaje: {{p.valoracion | number:'1.1'}}</p>
+                        </div>
+                        <div class="btn-group">
+                            <div class="col-5"><a routerLink="/pelicula-details/{{p.id}}" class="btn btn-info">Detalles</a></div>
+                            <div class="col-5"><a routerLink="/pelicula-rent/{{p.id}}" class="btn btn-primary">Alquilar</a></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div>
+            <pagination-controls (pageChange)="p = $event" directionLinks="true" autoHide="true" responsive="true"
+                previousLabel="" nextLabel=""></pagination-controls>
+        </div>
     </div>
-  </div>
+
 </div>
-</div>
-</div>
+<!-- Cards -->

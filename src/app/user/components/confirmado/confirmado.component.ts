@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/interface/services/data.service';
 import { Pelicula } from 'src/app/interface/classes/pelicula';
-import { ActivatedRoute, Router, ParamMap } from '@angular/router';
-import { switchMap, map, mapTo } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+
 
 @Component({
-  selector: 'app-detalles',
-  templateUrl: './detalles.component.html',
-  styleUrls: ['./detalles.component.scss']
+  selector: 'app-confirmado',
+  templateUrl: './confirmado.component.html',
+  styleUrls: ['./confirmado.component.scss']
 })
-export class DetallesComponent implements OnInit {
+export class ConfirmadoComponent implements OnInit {
 
   peli: Pelicula;
 
@@ -18,9 +17,9 @@ export class DetallesComponent implements OnInit {
 
   ngOnInit() {
     this.dataService.getPelicula(this.route.snapshot.params['id']).subscribe(data => {
-      this.peli = data;
-      // console.log(data);
-    });
+    this.peli = data;
+  });
   }
+
 
 }

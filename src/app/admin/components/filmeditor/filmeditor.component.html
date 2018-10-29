@@ -1,0 +1,30 @@
+<div *ngIf="!peli" class="container-fluid p-5">
+  <h2><strong>
+      <fa name="fa-sync" animation="spin"></fa> Cargando...
+    </strong> </h2>
+</div>
+<div *ngIf="peli" class="container-fluid p-5">
+  <h2>{{titulo}}</h2>
+  <form>
+    <div class="form-group">
+      <label for="edTitulo">Titulo</label>
+      <input type="text" class="form-control" id="edTitulo" name="edTitulo" placeholder="Ingrese el título" [(ngModel)]="peli.titulo">
+    </div>
+    <div class="form-group">
+      <label for="edDescripcion">Descripción</label>
+      <input type="text" class="form-control" id="edDescripcion" name="edDescripcion" placeholder="Ingrese la descripcion"
+        [(ngModel)]="peli.descripcion">
+    </div>
+    <div class="form-group">
+      <label for="edImagenUrl">Url Imagen</label>
+      <input type="text" class="form-control" id="edImagenUrl" name="edImagenUrl" placeholder="Ingrese el url de la imagen"
+        [(ngModel)]="peli.imagen">
+    </div>
+    <div class="form-group">
+      <label for="edGenero">Género</label>
+      <input type="text" class="form-control" id="edGenero" name="edGenero" placeholder="Ingrese el genero" [(ngModel)]="peli.genero">
+    </div>
+
+    <button class="btn btn-primary" type="button" (click)="guardarPeli()">Aceptar</button>
+  </form>
+</div>

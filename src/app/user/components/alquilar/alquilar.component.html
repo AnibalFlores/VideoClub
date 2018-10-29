@@ -1,0 +1,28 @@
+<div class="container-fluid p-5">
+  <div *ngIf="!peli">Cargando...</div>
+  <div *ngIf="peli">
+    <h2 *ngIf="!peli.alquilada" >Estas a punto de alquilar: <strong class="text-capitalize"> {{peli.titulo}} </strong> </h2>
+    <h2 *ngIf="peli.alquilada" ><strong class="text-capitalize"> {{peli.titulo}} </strong> ya esta alquilada, resérvala! </h2>
+    <div class="row">
+
+      <div class="col-4"><img src="{{peli.imagen}}" class="img-fluid img-thumbnail"></div>
+      <div class="col-4">
+        <div><span><strong>Condiciones:</strong> La devolución es en un plazo de 24 hrs con un recargo de 15% cada
+            3 horas de mora.</span></div>
+        <div><span><strong>Precio x 24hrs inicales:</strong> $ 40.50</span></div>
+        <div><span><strong>Reservas:</strong> Sin compromiso</span></div>
+      </div>
+      <div class="col-1 text-justify">
+        <div class="badge badge-info"><span>Género: {{peli.genero}}</span></div>
+        <div class="badge badge-info"><span>Alquilada: {{peli.cantidadAlquileres}} veces</span></div>
+        <div class="badge badge-info"><span>Valoración: {{peli.valoracion | number: '1.1'}} </span></div>
+        <div class="{{peli.alquilada ? 'badge badge-danger' : 'badge badge-success'}}"><span>Disponible: {{peli.alquilada == false ? 'Si' : 'No'}}</span></div>
+        <div class="btn-group">
+          <div class="p-1"><button routerLink="/" class="btn btn-info">Volver</button></div>
+          <div *ngIf="!peli.alquilada" class="p-1"><button (click)="confirmar()" class="btn btn-outline-success">Confirmar Alquiler</button></div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

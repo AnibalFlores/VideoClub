@@ -1,17 +1,27 @@
-<div *ngIf="peli" class="products">
-  <h2>Detalles de: {{peli.titulo | uppercase}} </h2>
-  <div><img src="{{peli.imagen}}" width="550"></div>
-  <div><span>Descripción: </span>{{peli.descripcion}}</div>
-  <div><span>Genero: </span>{{peli.genero}}</div>
-  <div><span>Puntaje: </span>{{peli.valoracion}}</div>
-  <div><span>Alquilada: </span>{{peli.cantidadAlquileres}} veces</div>
-  <div><span>Disponible: </span>{{peli.alquilada == false ? 'Si' : 'No'}}</div>
-  <div>
-      <button routerLink="/" class="btn">
-        Volver
-      </button>
-    <button routerLink="/pelicula-edit/{{peli.id}}" class="btn">
-      Editar
-    </button>
+<div *ngIf="!peli" class="container-fluid p-5">
+  <h2 ><strong> <fa name="fa-sync" animation="spin"></fa> Cargando... </strong> </h2>
+</div>
+<div *ngIf="peli" class="container-fluid p-5">
+  <div class="header p-4">
+    <h2 class="text-capitalize"><strong><fa name="film" size="lg"></fa> {{peli.titulo}} </strong> </h2>
+  </div>
+    <div class="row">
+
+    <div class="col-4"><img src="{{peli.imagen}}" class="img-fluid img-thumbnail"></div>
+    <div class="col-4">
+      <div><span><strong><fa name="comment" size="lg"></fa> Sinopsis:</strong>  {{peli.descripcion}}</span></div>
+
+    </div>
+    <div class="col-1 text-justify">
+      <div class="badge badge-info"><span><fa name="bookmark" size="lg"></fa> Género: {{peli.genero}}</span></div>
+      <div class="badge badge-info"><span><fa name="sign-in" size="lg"></fa> Alquilada: {{peli.cantidadAlquileres}} veces</span></div>
+      <div class="badge badge-info"><span><fa name="thumbs-up" size="lg"></fa> Valoración: {{peli.valoracion | number: '1.1'}} </span></div>
+      <div *ngIf="peli.alquilada" class="badge badge-danger"><span><fa name="times-circle" size="lg"></fa> Disponible: No</span></div>
+      <div *ngIf="!peli.alquilada" class="badge badge-success"><span><fa name="check-circle" size="lg"></fa> Disponible: Si</span></div>
+        <div class="btn-group">
+        <div class="p-1"><button routerLink="/" class="btn btn-info">Volver</button></div>
+        <div class="p-1"><button routerLink="/pelicula-edit/{{peli.id}}" class="btn btn-default">Editar</button></div>
+      </div>
+    </div>
   </div>
 </div>

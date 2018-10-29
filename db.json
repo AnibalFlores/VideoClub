@@ -1,134 +1,146 @@
 {
-    "usuario": [
-      { "id": 1,
-        "nombre": "Mr. Video",
-        "apellido": "Club",
-        "usuario": "admin",
-        "contraseña": "admin",
-        "teléfono": 3434272715,
-        "correo": "admin@admins.org.net",
-        "estado": true
+  "usuario": [
+    {
+      "id": 1,
+      "nombre": "Mr. Video",
+      "apellido": "Club",
+      "usuario": "admin",
+      "contraseña": "admin",
+      "teléfono": 3434272715,
+      "correo": "admin@admins.org.net",
+      "estado": true
     },
-    { "id": 2,
-        "nombre": "José",
-        "apellido": "Perez",
-        "usuario": "user",
-        "contraseña": "user",
-        "teléfono": 3434272715,
-        "correo": "jperex@users.org.net",
-        "estado": true
+    {
+      "id": 2,
+      "nombre": "José",
+      "apellido": "Perez",
+      "usuario": "user",
+      "contraseña": "user",
+      "teléfono": 3434272715,
+      "correo": "jperex@users.org.net",
+      "estado": true
     }
-    ],
-    "pelicula": [
-      { "id": 1,
-        "titulo" : "Arma Mortal",
-        "descripcion" : "De muchos tiros en la ciudad",
-        "imagen": "https://i1.wp.com/movienetworkpr.com/wp-content/uploads/2018/02/Lethal-Weapon-5-Production-Start-Close-Cast-Returning.jpg?resize=759%2C500&ssl=1",
-        "genero" : "Acción",
-        "alquilada" : false,
-        "valoracion" : 10.0,
-        "cantidadAlquileres": 0
+  ],
+  "pelicula": [
+    {
+      "id": 1,
+      "titulo": "Arma Mortal",
+      "descripcion": "De muchos tiros en la ciudad. Año 1987",
+      "imagen": "https://i1.wp.com/movienetworkpr.com/wp-content/uploads/2018/02/Lethal-Weapon-5-Production-Start-Close-Cast-Returning.jpg?resize=759%2C500&ssl=1",
+      "genero": "Acción",
+      "alquilada": true,
+      "valoracion": 10,
+      "cantidadAlquileres": 2
     },
-    { "id": 2,
-        "titulo" : "Rambo First Blood",
-        "descripcion" : "De muchos tiros en el bosque",
-        "imagen": "https://brobible.files.wordpress.com/2018/05/sylvester-stallone-story-outfit-first-blood.jpg?quality=90&w=650",
-        "genero" : "Acción",
-        "alquilada" : false,
-        "valoracion" : 10.0,
-        "cantidadAlquileres": 0
+    {
+      "id": 2,
+      "titulo": "Rambo First Blood",
+      "descripcion": "De muchos tiros en el bosque",
+      "imagen": "https://brobible.files.wordpress.com/2018/05/sylvester-stallone-story-outfit-first-blood.jpg?quality=90&w=650",
+      "genero": "Acción",
+      "alquilada": true,
+      "valoracion": 10,
+      "cantidadAlquileres": 1
     },
-    { "id": 3,
-        "titulo" : "Duro de Matar",
-        "descripcion" : "De muchos tiros en un edificio",
-        "imagen": "https://d18lkz4dllo6v2.cloudfront.net/cumulus_uploads/entry/19848/Die%20Hard%20illustrative.jpg?w=660",
-        "genero" : "Acción",
-        "alquilada" : false,
-        "valoracion" : 10.0,
-        "cantidadAlquileres": 0
+    {
+      "id": 3,
+      "titulo": "Duro de Matar",
+      "descripcion": "De muchos tiros en un edificio. Con Bruce Willis y gran elenco",
+      "imagen": "https://d18lkz4dllo6v2.cloudfront.net/cumulus_uploads/entry/19848/Die%20Hard%20illustrative.jpg?w=660",
+      "genero": "Acción",
+      "alquilada": true,
+      "valoracion": 10,
+      "cantidadAlquileres": 1
     },
-    { "id": 4,
-        "titulo" : "Depredador",
-        "descripcion" : "De muchos tiros en la selva tropical",
-        "imagen": "https://amp.businessinsider.com/images/5ba1327964dce839008b5e4d-750-457.jpg",
-        "genero" : "Acción",
-        "alquilada" : false,
-        "valoracion" : 10.0,
-        "cantidadAlquileres": 0
+    {
+      "id": 4,
+      "titulo": "Depredador",
+      "descripcion": "De muchos tiros en la selva tropical",
+      "imagen": "https://amp.businessinsider.com/images/5ba1327964dce839008b5e4d-750-457.jpg",
+      "genero": "Acción",
+      "alquilada": false,
+      "valoracion": 10,
+      "cantidadAlquileres": 0
     },
-    { "id": 5,
-        "titulo" : "El Padrino",
-        "descripcion" : "Una propuesta que no podras rehusar",
-        "imagen": "https://image.oregonlive.com/home/olive-media/width620/img/trending/photo/2018/02/28/godfathercoverjpg-f44bb80afc024abb.jpg",
-        "genero" : "Drama",
-        "alquilada" : false,
-        "valoracion" : 10.0,
-        "cantidadAlquileres": 0
+    {
+      "id": 5,
+      "titulo": "El Padrino",
+      "descripcion": "Una propuesta que no podras rehusar. Año 1972",
+      "imagen": "https://image.oregonlive.com/home/olive-media/width620/img/trending/photo/2018/02/28/godfathercoverjpg-f44bb80afc024abb.jpg",
+      "genero": "Drama",
+      "alquilada": false,
+      "valoracion": 10,
+      "cantidadAlquileres": 0
     },
-    { "id": 6,
-        "titulo" : "Ghostbusters",
-        "descripcion" : "Si tienes problemas de fantasmas llamalos",
-        "imagen": "https://cdn1.thr.com/sites/default/files/imagecache/landscape_928x523/2014/06/77_Ghostbusters.jpg",
-        "genero" : "Comedia",
-        "alquilada" : false,
-        "valoracion" : 9.8,
-        "cantidadAlquileres": 0
+    {
+      "id": 6,
+      "titulo": "Ghostbusters",
+      "descripcion": "Si tienes problemas de fantasmas llamalos",
+      "imagen": "https://cdn1.thr.com/sites/default/files/imagecache/landscape_928x523/2014/06/77_Ghostbusters.jpg",
+      "genero": "Comedia",
+      "alquilada": false,
+      "valoracion": 9.8,
+      "cantidadAlquileres": 0
     },
-    { "id": 7,
-        "titulo" : "Expreso de Medianoche",
-        "descripcion" : "Atrapado a la medianoche en Estambul",
-        "imagen": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2016/05/16/14/midnight-express.jpg?w968h681",
-        "genero" : "Drama",
-        "alquilada" : false,
-        "valoracion" : 10.0,
-        "cantidadAlquileres": 0
+    {
+      "id": 7,
+      "titulo": "Expreso de Medianoche",
+      "descripcion": "Atrapado a la medianoche en Estambul",
+      "imagen": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2016/05/16/14/midnight-express.jpg?w968h681",
+      "genero": "Drama",
+      "alquilada": false,
+      "valoracion": 10,
+      "cantidadAlquileres": 0
     },
-    { "id": 8,
-        "titulo" : "Highlander",
-        "descripcion" : "Solo puede haber uno",
-        "imagen": "https://i.pinimg.com/originals/31/5f/49/315f4912fa305e5abacf5ec332658769.jpg",
-        "genero" : "Ciencia Ficción",
-        "alquilada" : false,
-        "valoracion" : 10.0,
-        "cantidadAlquileres": 0
+    {
+      "id": 8,
+      "titulo": "Highlander",
+      "descripcion": "Solo puede haber uno",
+      "imagen": "https://i.pinimg.com/originals/31/5f/49/315f4912fa305e5abacf5ec332658769.jpg",
+      "genero": "Ciencia Ficción",
+      "alquilada": false,
+      "valoracion": 10,
+      "cantidadAlquileres": 0
     },
-    { "id": 9,
-        "titulo" : "Alien",
-        "descripcion" : "El octavo pasajero.",
-        "imagen": "https://ep01.epimg.net/cultura/imagenes/2017/05/04/actualidad/1493891411_921141_1494270220_noticia_normal.jpg",
-        "genero" : "Ciencia Ficcion",
-        "alquilada" : false,
-        "valoracion" : 10.0,
-        "cantidadAlquileres": 0
+    {
+      "id": 9,
+      "titulo": "Alien",
+      "descripcion": "El octavo pasajero.",
+      "imagen": "https://ep01.epimg.net/cultura/imagenes/2017/05/04/actualidad/1493891411_921141_1494270220_noticia_normal.jpg",
+      "genero": "Ciencia Ficcion",
+      "alquilada": false,
+      "valoracion": 10,
+      "cantidadAlquileres": 0
     },
-    { "id": 10,
-        "titulo" : "El Francotirador",
-        "descripcion" : "Ruleta rusa en Vietnam.",
-        "imagen": "https://criticsroundup.com/wp-content/uploads/2014/07/the-deer-hunter-still-526x295.jpg",
-        "genero" : "Drama",
-        "alquilada" : false,
-        "valoracion" : 10.0,
-        "cantidadAlquileres": 0
+    {
+      "id": 10,
+      "titulo": "El Francotirador",
+      "descripcion": "Ruleta rusa en Vietnam.",
+      "imagen": "https://criticsroundup.com/wp-content/uploads/2014/07/the-deer-hunter-still-526x295.jpg",
+      "genero": "Drama",
+      "alquilada": false,
+      "valoracion": 10,
+      "cantidadAlquileres": 0
     },
-    { "id": 11,
-        "titulo" : "La mosca",
-        "descripcion" : "Entra en el telepod.",
-        "imagen": "https://m.media-amazon.com/images/M/MV5BMDEzYTBmMTYtMWRmNi00YmE1LWIzNTItMjlhODVlYmI4OTYwXkEyXkFqcGdeQXVyNzU1NzE3NTg@._V1_CR0,45,480,270_AL_UX477_CR0,0,477,268_AL_.jpggit",
-        "genero" : "Ciencia Ficción",
-        "alquilada" : false,
-        "valoracion" : 10.0,
-        "cantidadAlquileres": 0
+    {
+      "id": 11,
+      "titulo": "La mosca",
+      "descripcion": "Entra en el telepod.",
+      "imagen": "https://m.media-amazon.com/images/M/MV5BMDEzYTBmMTYtMWRmNi00YmE1LWIzNTItMjlhODVlYmI4OTYwXkEyXkFqcGdeQXVyNzU1NzE3NTg@._V1_CR0,45,480,270_AL_UX477_CR0,0,477,268_AL_.jpggit",
+      "genero": "Ciencia Ficción",
+      "alquilada": true,
+      "valoracion": 10,
+      "cantidadAlquileres": 1
     },
-    { "id": 12,
-        "titulo" : "El efecto mariposa",
-        "descripcion" : "Un pequeño cambio por aquí.",
-        "imagen": "https://thesoulborrower.files.wordpress.com/2009/12/the_butterfly_effect_-_evan_age_7-0-0-0x0-360x234.jpeg",
-        "genero" : "Ciencia Ficción",
-        "alquilada" : false,
-        "valoracion" : 10.0,
-        "cantidadAlquileres": 0
+    {
+      "id": 12,
+      "titulo": "El efecto mariposa",
+      "descripcion": "Un pequeño cambio por aquí.",
+      "imagen": "https://thesoulborrower.files.wordpress.com/2009/12/the_butterfly_effect_-_evan_age_7-0-0-0x0-360x234.jpeg",
+      "genero": "Ciencia Ficción",
+      "alquilada": false,
+      "valoracion": 10,
+      "cantidadAlquileres": 0
     }
-    
-
-    ]
-  }
+  ]
+}
