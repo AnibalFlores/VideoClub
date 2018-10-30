@@ -1,3 +1,12 @@
-<div class="container-fluid p-5">
-  <h2>Opss! Dasboard no esta listo todavia.</h2>
+<div *ngIf="!usuario" class="container-fluid p-5">
+  <h2><strong><fa name="sync" animation="spin"></fa> Cargando... </strong></h2>
+</div>
+<div *ngIf="usuario" class="container-fluid p-5">
+  <h2><strong><fa name="fa-note" animation="spin"></fa> DashBoard </strong> </h2>
+  <button class="btn btn-outline-success" [routerLink]="['/peli-nueva']" routerLinkActive="router-link-active" >Nueva Película</button>
+  <button class="btn btn-outline-success" [routerLink]="['/landing']" routerLinkActive="router-link-active" >Editar Películas</button>
+  <button class="btn btn-outline-success" [routerLink]="['/devolucion']" routerLinkActive="router-link-active" >Devoluciones</button>
+  <button class="btn btn-outline-success" [routerLink]="['/user-nuevo']" routerLinkActive="router-link-active" >Nuevo Usuario</button>
+  <button class="btn btn-outline-success" [routerLink]="['/user-list']" routerLinkActive="router-link-active" >Editar Usuarios</button>
+
 </div>

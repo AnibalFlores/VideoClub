@@ -1,3 +1,60 @@
-<p>
-  usereditor works!
-</p>
+<div *ngIf="!usuario" class="container-fluid p-5">
+    <h2><strong>
+        <fa name="fa-sync" animation="spin"></fa> Cargando...
+      </strong> </h2>
+  </div>
+  <div *ngIf="usuario" class="container-fluid p-5">
+    <h2>{{titulo}}</h2>
+    <form>
+      <div class="form-group">
+        <label for="edNombre">Nombre</label>
+        <input type="text" class="form-control" id="edNombre" name="edNombre" placeholder="Ingrese los nombres" [(ngModel)]="usuario.nombre">
+      </div>
+      <div class="form-group">
+        <label for="edApellido">Apellido</label>
+        <input type="text" class="form-control" id="edApellido" name="edApellido" placeholder="Ingrese los apellidos"
+          [(ngModel)]="usuario.apellido">
+      </div>
+      <div class="form-group">
+        <label for="edUsuario">Usuario</label>
+        <input type="text" class="form-control" id="edUsuario" name="edUsuario" placeholder="Ingrese el usuario de sistema"
+          [(ngModel)]="usuario.usuario">
+      </div>
+      <div class="form-group">
+          <label for="edPassw">Contraseña</label>
+          <input type="password" class="form-control" id="edPassw" name="edPassw" placeholder="Ingrese la contraseña"
+            [(ngModel)]="password">
+        </div>
+        <div class="form-group">
+            <label for="edImagenUrl">Verifica Contraseña</label>
+            <input type="password" class="form-control" id="edImagenUrl" name="edImagenUrl" placeholder="Ingrese la contraseña nuevamente"
+              [(ngModel)]="verificador">
+          </div>
+          <div class="form-group">
+              <label for="edTelefono">Telefono</label>
+              <input type="text" class="form-control" id="edTelefono" name="edTelefono" placeholder="Ingrese el nro de telefono"
+                [(ngModel)]="telefonos">
+            </div>
+            <div class="form-group">
+                <label for="edEmail">Correo</label>
+                <input type="text" class="form-control" id="edEmail" name="edEmail" placeholder="Ingrese el correo electronico"
+                  [(ngModel)]="usuario.correo">
+              </div>
+      <div class="form-group">
+        <label for="edEstado">Estado</label>
+        <select class="form-control" id="edEstado" name="edEstado" placeholder="Ingrese el genero" [(ngModel)]="usuario.estado">
+            <option *ngFor="let e of estados" [ngValue]="e.id">{{e.name}}</option>
+        </select>
+      </div>
+        <div class="btn-group">
+        <button type="button" class="btn btn-primary btn-color btn-bg-color btn-sm col-xs-2" (click)="guardarUser()">Aceptar</button>
+  
+        <button *ngIf="editor && editor.id==1" type="button" class="btn btn-secondary btn-color btn-bg-color btn-sm col-xs-2"
+          [routerLink]="['/user-list']" routerLinkActive="router-link-active">Cancelar</button>
+  
+        <button *ngIf="editor && editor.id==1 && usuario.id!=-1" type="button" class="btn btn-outline-danger btn-color btn-bg-color btn-sm col-xs-2"
+          [routerLink]="['/borrar-user/'+usuario.id]" routerLinkActive="router-link-active">Borrar</button>
+      </div>
+  
+    </form>
+  </div>

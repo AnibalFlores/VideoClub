@@ -12,12 +12,14 @@ import { Pelicula } from 'src/app/interface/classes/pelicula';
 export class ConfirmadoComponent implements OnInit {
 
   peli: Pelicula;
+  fecha: Date;
 
   constructor(private route: ActivatedRoute, private dataService: DataService) { }
 
   ngOnInit() {
     this.dataService.getPelicula(this.route.snapshot.params['id']).subscribe(data => {
     this.peli = data;
+    this.fecha = new Date(new Date().getTime() + 60 * 60 * 24 * 1000);
   });
   }
 

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/interface/services/data.service';
 import { Pelicula } from 'src/app/interface/classes/pelicula';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
-import { switchMap, map, mapTo } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/interface/services/auth.service';
+import { Usuario } from 'src/app/interface/classes/usuario';
 
 @Component({
   selector: 'app-detalles',
@@ -13,8 +13,10 @@ import { Observable } from 'rxjs';
 export class DetallesComponent implements OnInit {
 
   peli: Pelicula;
-
-  constructor(private route: ActivatedRoute, private dataService: DataService) { }
+  user: Usuario;
+  constructor(private route: ActivatedRoute, private dataService: DataService, private authSrv: AuthService) {
+    this.user = this.authSrv.hacker;
+   }
 
   ngOnInit() {
     this.dataService.getPelicula(this.route.snapshot.params['id']).subscribe(data => {

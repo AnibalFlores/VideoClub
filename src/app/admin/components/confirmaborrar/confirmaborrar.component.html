@@ -1,0 +1,9 @@
+<div *ngIf="!usuario" class="container-fluid p-5">
+    <h2><strong><fa name="sync" animation="spin"></fa> Cargando... </strong></h2>
+  </div>
+  <div *ngIf="usuario" class="container-fluid p-5">
+    <h2><strong><fa name="fa-note" animation="spin"></fa> {{titulo}} </strong> </h2></div>
+    <div class="btn-group">
+    <button class="btn btn-outline-success" (click)="siBorrar()" >Si</button>
+    <button class="btn btn-outline-success" (click)="noAtras()">No</button>
+  </div>

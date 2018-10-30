@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { first } from 'rxjs/operators';
 import { AuthService } from '../interface/services/auth.service';
 import { AlertService } from '../interface/services/alert.service';
 import { DataService } from '../interface/services/data.service';
@@ -22,7 +21,7 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthService,
+    private AuthSrv: AuthService,
     private dataSrv: DataService,
     private alertService: AlertService) { }
 
@@ -32,30 +31,31 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required]
     });
 
-    // reset login status
-    this.authenticationService.logout();
+    // reset del login status
+    this.AuthSrv.logout();
 
-    // get return url from route parameters or default to '/'
+    // obtengo url de retorno url del router
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
-  // convenience getter for easy access to form fields
+  // geter de los form fields
   get f() { return this.loginForm.controls; }
 
   onSubmit() {
     this.submitted = true;
 
-    // stop here if form is invalid
+    // hay algo mal paramos aca
     if (this.loginForm.invalid) {
       return;
     }
 
     this.loading = true;
-    if (this.authenticationService.login(this.f.username.value, this.f.password.value)) {
+    if (this.AuthSrv.login(this.f.username.value, this.f.password.value)) {
       this.dataSrv.getPeliculas();
-      if (this.authenticationService.isAdmin) { this.router.navigate(['dashboard']); } else {
-        this.router.navigate([this.returnUrl]);
+      if (this.AuthSrv.isAdmin()) { this.router.navigate(['/dashboard']); } else {
+        this.router.navigate(['/landing']);
       }
+
     } else {
       this.alertService.error('No se pudo loguear verifique sus datos');
       this.loading = false;

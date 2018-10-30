@@ -1,21 +1,43 @@
-<div class="container p-5">
-  <div *ngIf="!peli">Procesando...</div>
-  <div *ngIf="peli">
-    <h2>Has Alquilado: <strong class="text-capitalize"> {{peli.titulo}} </strong> </h2>
-    <div class="row">
+<div *ngIf="!peli" class="container-fluid p-5">
+  <hr>
+  <h2><strong>
+      <fa name="spinner" animation="spin"></fa> Procesando...
+    </strong> </h2>
+  <hr>
+</div>
+<div *ngIf="peli" class="container-fluid p-5">
+  <h2>Has Alquilado: <strong class="text-capitalize"> {{peli.titulo}} </strong> </h2>
+  <div class="row">
 
-      <div class="col-4"><img src="{{peli.imagen}}" class="img-fluid img-thumbnail"></div>
-      <div class="col-4">
-        <div><span><strong>Muchas Gracias!!</strong></span></div>
+    <div class="col-4"><img src="{{peli.imagen}}" class="img-fluid img-thumbnail"></div>
+    <div class="col-4">
+      <div>
+        <h4><strong>Muchas Gracias!!</strong></h4>
       </div>
-      <div class="col-1 text-justify">
-        <div class="badge badge-info"><span>Género: {{peli.genero}}</span></div>
-        <div class="badge badge-info"><span>Alquilada: {{peli.cantidadAlquileres}} veces</span></div>
-        <div class="badge badge-info"><span>Valoración: {{peli.valoracion | number: '1.1'}} </span></div>
-        <div class="badge badge-success"><span>Disponible: {{peli.alquilada == false ? 'Si' : 'No'}}</span></div>
-        <div class="btn-group">
-          <div class="p-1"><button routerLink="/" class="btn btn-info">Volver</button></div>
-        </div>
+
+      <div>
+        <h6>Tienes plazo hasta: {{ fecha | date: 'dd/MM/yyyy HH:mm':'UTC' }}.</h6>
+      </div>
+    </div>
+    <div class="col-1 text-justify">
+      <div class="badge badge-info"><span>
+          <fa name="bookmark" size="lg"></fa> Género: {{peli.genero}}
+        </span></div>
+      <div class="badge badge-info"><span>
+          <fa name="sign-in" size="lg"></fa> Alquilada: {{peli.cantidadAlquileres}} veces
+        </span></div>
+      <div class="badge badge-info"><span>
+          <fa name="thumbs-up" size="lg"></fa> Valoración: {{peli.valoracion | number: '1.1'}}
+        </span></div>
+      <div *ngIf="peli.alquilada" class="badge badge-danger"><span>
+          <fa name="times-circle" size="lg"></fa> Disponible: No
+        </span></div>
+      <div *ngIf="!peli.alquilada" class="badge badge-success"><span>
+          <fa name="check-circle" size="lg"></fa> Disponible: Si
+        </span></div>
+      <hr>
+      <div class="btn-group">
+        <div class="p-1"><button routerLink="/" class="btn btn-info">Volver</button></div>
       </div>
     </div>
   </div>

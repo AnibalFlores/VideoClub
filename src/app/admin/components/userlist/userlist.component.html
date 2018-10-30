@@ -1,0 +1,40 @@
+<div *ngIf="!usuarios" class="container-fluid p-5">
+  <h2><strong>
+      <fa name="fa-sync" animation="spin"></fa> Cargando...
+    </strong> </h2>
+</div>
+<div *ngIf="usuarios" class="container-fluid p-5">
+  <br>
+  <h3>Usuarios: {{ usuarios.length }}</h3>
+  <br>
+  <div>
+    <pagination-controls (pageChange)="p = $event" directionLinks="true" autoHide="true" responsive="true"
+        previousLabel="" nextLabel=""></pagination-controls>
+</div>
+  <table class="table table-responsive uk-table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nombre y Apellido</th>
+        <th>Correo</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of usuarios | paginate: { itemsPerPage: 5, currentPage: p, totalItems: usuarios.length }">
+        <td>{{ u.id }}</td>
+        <td><button class="btn btn-outline-primary" [routerLink]="['/usuario-edit/',u.id]">{{ u.nombre }} {{ u.apellido }}</button></td>
+        <td>{{ u.correo }}</td>
+        <td *ngIf="u.estado">Alta</td>
+        <td *ngIf="!u.estado">De Baja</td>
+        <td><button class="btn btn-outline-warning" (click)="borrarUsuario(u.id)">Borrar</button></td>
+      </tr>
+      <tr *ngIf="!usuarios || usuarios.length == 0">
+        <h3>No hay usuarios</h3>
+      </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-primary" [routerLink]="['/user-nuevo']">Agregar</button>
+  <button class="btn btn-secondary" [routerLink]="['/dashboard']" routerLinkActive="router-link-active">Cancelar</button>
+</div>

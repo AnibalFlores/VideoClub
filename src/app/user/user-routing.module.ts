@@ -10,13 +10,15 @@ import { ConfirmadoComponent } from './components/confirmado/confirmado.componen
 const Userroutes: Routes = [
   {
     path: '',
-    component: LandingpageComponent,
+    redirectTo: 'landing',
     pathMatch: 'full'
+  },
+  { path: 'landing',
+    component: LandingpageComponent
   },
   {
     path: 'login',
     component: LoginComponent,
-    pathMatch: 'full'
     // canActivate: [AdminauthService, UserauthService]
   },
   {

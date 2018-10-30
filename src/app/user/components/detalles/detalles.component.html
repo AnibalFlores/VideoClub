@@ -1,5 +1,7 @@
 <div *ngIf="!peli" class="container-fluid p-5">
-  <h2 ><strong> <fa name="fa-sync" animation="spin"></fa> Cargando... </strong> </h2>
+  <hr>
+  <h2 ><strong> <fa name="spinner" animation="spin"></fa> Cargando... </strong> </h2>
+  <hr>
 </div>
 <div *ngIf="peli" class="container-fluid p-5">
   <div class="header p-4">
@@ -8,9 +10,9 @@
     <div class="row">
 
     <div class="col-4"><img src="{{peli.imagen}}" class="img-fluid img-thumbnail"></div>
-    <div class="col-4">
-      <div><span><strong><fa name="comment" size="lg"></fa> Sinopsis:</strong>  {{peli.descripcion}}</span></div>
-
+    <div class="col-4 text-center">
+      <div class="p-2"><span><strong><fa name="comment" size="lg"></fa> Sinopsis</strong></span></div>
+      <div>{{ peli.descripcion }}</div>
     </div>
     <div class="col-1 text-justify">
       <div class="badge badge-info"><span><fa name="bookmark" size="lg"></fa> Género: {{peli.genero}}</span></div>
@@ -18,9 +20,10 @@
       <div class="badge badge-info"><span><fa name="thumbs-up" size="lg"></fa> Valoración: {{peli.valoracion | number: '1.1'}} </span></div>
       <div *ngIf="peli.alquilada" class="badge badge-danger"><span><fa name="times-circle" size="lg"></fa> Disponible: No</span></div>
       <div *ngIf="!peli.alquilada" class="badge badge-success"><span><fa name="check-circle" size="lg"></fa> Disponible: Si</span></div>
-        <div class="btn-group">
-        <div class="p-1"><button routerLink="/" class="btn btn-info">Volver</button></div>
-        <div class="p-1"><button routerLink="/pelicula-edit/{{peli.id}}" class="btn btn-default">Editar</button></div>
+      <hr>
+      <div class="btn-group">
+        <button  class="btn btn-info" routerLink="/" >Volver</button>
+        <button  *ngIf="user && user.id==1" class="btn btn-primary" routerLink="/pelicula-edit/{{peli.id}}" >Editar</button>
       </div>
     </div>
   </div>

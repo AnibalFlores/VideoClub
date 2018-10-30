@@ -1,4 +1,11 @@
 # VideoClub
+## A practice in Angular
+
+### The main goal was to make a simple terminal of a movies rental shop.
+Restrictions: The only allowed models are users and movies, and services  to use json-server.
+
+Run `json-server -w db.json` for the database first.
+#
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.2.
 

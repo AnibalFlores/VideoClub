@@ -13,11 +13,10 @@ import { AlertService } from './interface/services/alert.service';
 import { AdminauthService } from './interface/services/adminauth.service';
 import { UserauthService } from './interface/services/userauth.service';
 import { AlertComponent } from './alert/alert.component';
-import { SummaryPipe } from './helpers/summary.pipe';
-import { SummaryComponent } from './helpers/summary.component';
 import { AdminModule } from './admin/admin.module';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { HelpersModule } from './helpers/helpers.module';
 
 
 
@@ -27,10 +26,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     LandingpageComponent,
     PageNotFoundComponent,
     LoginComponent,
-    AlertComponent,
-    SummaryComponent,
-    SummaryPipe
-  ],
+    AlertComponent
+ ],
   imports: [
     BrowserModule,
     FormsModule,
@@ -38,6 +35,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     HttpClientModule,
     UserModule,
     AdminModule,
+    HelpersModule,
     AppRoutingModule,
     NgxPaginationModule,
     AngularFontAwesomeModule
@@ -46,7 +44,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     AlertService,
     AdminauthService,
     UserauthService,
-    ],
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

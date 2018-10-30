@@ -1,0 +1,45 @@
+<div *ngIf="!alquiladas" class="container-fluid p-5">
+  <h2><strong>
+      <fa name="fa-sync" animation="spin"></fa> Cargando...
+    </strong> </h2>
+</div>
+<div *ngIf="alquiladas" class="container-fluid p-5">
+  <br>
+  <h3>Alquiladas: {{ alquiladas.length }}</h3>
+  <div><p>Consulte y seleccione los puntos dados por el cliente, por defecto se asigna 8.</p></div>
+  <br>
+    <div>
+    <pagination-controls (pageChange)="p = $event" directionLinks="true" autoHide="true" responsive="true"
+      previousLabel="" nextLabel=""></pagination-controls>
+  </div>
+  <table class="table table-responsive table-striped table-hover">
+      <thead>
+         <tr>
+        <th>Id</th>
+        <th>Titulo</th>
+        <th>Puntaje Actual</th>
+        <th>Estado</th>
+        <th>Puntos</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let a of alquiladas | paginate: { itemsPerPage: 5, currentPage: p, totalItems: alquiladas.length }">
+        <td>{{ a.id }}</td>
+        <td class="text-capitalize">{{ a.titulo }}</td>
+        <td>{{ a.valoracion | number:'1.1'}}</td>
+        <td *ngIf="a.alquilada">Alquilada</td>
+        <td *ngIf="!a.alquilada">Devuelta</td>
+        <td>
+          <select class="form-control" id="edPuntos" name="edPuntos" placeholder="Ingrese el genero" [(ngModel)]="puntos">
+            <option *ngFor="let p of puntaje" [ngValue]="p">{{p}}</option>
+          </select></td>
+        <td><button class="btn btn-outline-success" (click)="devolverPelicula(a.id,a)">Devolver</button></td>
+      </tr>
+      <tr *ngIf="!alquiladas || alquiladas.length == 0">
+        <h3>No hay alquiladas</h3>
+      </tr>
+    </tbody>
+  </table>
+    <button class="btn btn-secondary" [routerLink]="['/dashboard']" routerLinkActive="router-link-active">Cancelar</button>
+</div>
