@@ -24,7 +24,7 @@ export class AppComponent {
     this.router.events
       .subscribe((ev) => {
         if (ev instanceof NavigationEnd) {
-          this.buscador = (ev.url === '/landing' || ev.url === '/user-list') ? true : false;
+          this.buscador = ((ev.url === '/landing' || ev.url === '/user-list') && this.usuario) ? true : false;
         }
       });
 
@@ -42,6 +42,9 @@ export class AppComponent {
     alert('Te has deslogueado');
     this.dataSrv.getPeliculas();
     // deslogueado quedamos en pagina de login
+    // y si el anonimo pulsa volver vera el listado de peliculas pero sin 
+    // la funcionalidad de buscar
+    this.buscador = false;
     this.router.navigate(['login']);
   }
 

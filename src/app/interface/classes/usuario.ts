@@ -3,8 +3,8 @@ export class Usuario {
     nombre: string;
     apellido: string;
     usuario: string;
-    contraseña: string;
-    teléfono: number;
+    clave: string;
+    telefono: number;
     correo: string;
     estado: boolean;
 }

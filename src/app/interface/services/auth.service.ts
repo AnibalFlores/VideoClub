@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Usuario } from '../classes/usuario';
 import { Observable, of, Subject } from 'rxjs';
-import { tap, catchError, map, find } from 'rxjs/operators';
+import { tap, catchError, map } from 'rxjs/operators';
 
 const endpoint = 'http://localhost:3000/';
 const httpOptions = {
@@ -100,7 +100,7 @@ export class AuthService {
     // aca vemos de los activos si usuario y clave son los correctos
     // (para el id = 1 lo reservamos para el Admin user y no es borrable!)
     // this.listadoUser$.forEach(us => this.hacker = us.find(u => u.usuario === username && u.contraseña === pass && u.estado));
-    this.hacker = this.usersActivos.find(u => u.usuario === username && u.contraseña === pass);
+    this.hacker = this.usersActivos.find(u => u.usuario === username && u.clave === pass);
     // mandamos el usuario al subject object
     this.user$.next(this.hacker);
     this.logged = this.user$.asObservable();

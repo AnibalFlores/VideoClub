@@ -21,7 +21,6 @@ export class UsereditorComponent implements OnInit {
    ];
   password = '';
   verificador = '';
-  telefonos = '';
 
   constructor(private dataSrv: DataService,
     private ruta: ActivatedRoute,
@@ -31,8 +30,8 @@ export class UsereditorComponent implements OnInit {
 
   guardarUser() {
     if (this.password === this.verificador) {
-    this.usuario.contraseña = this.password;
-    this.usuario.teléfono = +this.telefonos;
+    this.usuario.clave = this.password;
+    // this.usuario.telefono = +this.telefonos;
     this.authSrv.guardarUsuario(this.usuario).subscribe(
       (p) => this.router.navigate(['/user-list']),
       error => alert('Error al guardar la pelicula: ' + error)
@@ -53,9 +52,9 @@ export class UsereditorComponent implements OnInit {
       this.authSrv.getUsuario(+this.ruta.snapshot.paramMap.get('id')).subscribe(
         (u: Usuario) => {
           this.usuario = u;
-          this.password = u.contraseña;
-          this.verificador = u.contraseña;
-          this.telefonos = '' + u.teléfono;
+          // this.password = u.contraseña;
+          this.verificador = u.clave;
+          // this.telefonos = '' + u.teléfono;
         },
         error => console.log(error));
       this.titulo = 'Editar Usuario';

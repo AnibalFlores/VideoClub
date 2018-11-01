@@ -5,8 +5,8 @@
       "nombre": "Mr. Video",
       "apellido": "Club",
       "usuario": "admin",
-      "contraseña": "admin",
-      "teléfono": 3434272715,
+      "clave": "admin",
+      "telefono": 3434272715,
       "correo": "admin@admins.org.net",
       "estado": true
     },
@@ -17,8 +17,8 @@
       "usuario": "user",
       "correo": "asdsdgfr@dfsdf.net",
       "estado": true,
-      "contraseña": "user",
-      "teléfono": 234235
+      "clave": "user",
+      "telefono": 234235
     },
     {
       "id": 3,
@@ -27,8 +27,8 @@
       "apellido": "Fuentes",
       "usuario": "jorge",
       "correo": "jfuentes@arnet",
-      "contraseña": "jorge",
-      "teléfono": 4576893
+      "clave": "jorge",
+      "telefono": 4576893
     }
   ],
   "pelicula": [
